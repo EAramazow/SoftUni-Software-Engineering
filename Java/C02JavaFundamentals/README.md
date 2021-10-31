@@ -1,1 +1,1 @@
-Learning methods, objects and classes, data structures like Arrays, Lists, Associative Arrays; regular expressions.
+Learning methods, objects and classes, data structures - Arrays, Lists, Associative Arrays, regular expressions.
