@@ -1,1 +1,1 @@
-Learning basic skills.
+Learning basic coding skills.
