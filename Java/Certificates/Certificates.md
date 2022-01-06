@@ -1,1 +1,1 @@
-Certificates from completed courses.
+Uploaded certificates from completed courses.
