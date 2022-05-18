@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+nav {
+    background-color: silver;
+    padding: 20px;
+    text-align: center;
+}
+
+li {
+    padding: 0 20px;
+    display: inline-block;
+}
+
+li a {
+    text-decoration: none;
+    color: green;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+li:hover {
+    color: rgb(32, 106, 37);
+    background-color: rgb(42, 207, 36);
+    padding-right: 15px;
+    border-radius: 10px;
+}
+
+a:hover {
+    color: white;
+    padding-top:  18px;
+    padding-bottom: 14px;
+}
