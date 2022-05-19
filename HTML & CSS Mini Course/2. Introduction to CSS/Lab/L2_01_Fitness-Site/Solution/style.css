@@ -1,0 +1,89 @@
+body {
+    background: #F0F1F5;
+    margin: 0;
+    padding: 2rem 12rem;
+    font-family: "Helvetica", sans-serif;
+}
+
+header>p {
+    color: #F9690E;
+    float: left;
+}
+
+nav {
+    text-align: right;
+}
+
+nav ul {
+    float: right;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0 8px;
+}
+
+nav ul li a {
+    color: #F9690E;
+    text-decoration: none;
+}
+
+/*
+Достъпваме първата секция от <main> 
+*/
+
+main section:nth-child(1) {
+    margin-top: 3rem;
+    background-image: url("/home/emil/Emil Aramazov/SOFTUNI/Java Web - May 2022/1. HTML & CSS Mini Course/2. Introduction to CSS/Lab/L2_01_Fitness-Site/Requirements-and-Resources/Images/picture.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 19rem;
+}
+
+main section:nth-child(1) h1 {
+    color: white;
+
+}
+
+main section:nth-child(1) span {
+    color: #F9690E;
+}
+
+main section:nth-child(1) button{
+background-color: #F9690E;
+border: none;
+color: white;
+font-size: 22px;
+padding: 12px;
+font-weight: bold;
+}
+
+/*
+Взимаме секцията, която е втора по ред
+*/
+
+main section:nth-child(2) article {
+background-color: #F9690E;
+color: white;
+width: 28%;
+display: inline-block;
+padding: 39px;
+} 
+
+main section:nth-child(2) article h3 {
+text-align: center;
+
+}
+
+footer article {
+    width: 49%;
+    display: inline-block;
+}
+
+footer article:nth-child(2) {
+text-align: right;
+}
+
+footer svg {
+    padding: 15px;
+}
