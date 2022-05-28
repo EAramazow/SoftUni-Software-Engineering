@@ -9,6 +9,8 @@ import javax.persistence.Table;
 @Table(name = "shops")
 public class ShopEntity extends BaseEntity{
 
+    //TODO make the relations between entities
+
     @Column(name = "address", unique = true, nullable = false)
     private String address;
     @Column(name = "name")
