@@ -1,9 +1,8 @@
 package bg.softuni.supermarket.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "sellers")
@@ -11,12 +10,24 @@ public class SellerEntity extends BaseEntity{
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
+
     @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "age", nullable = false)
+
+    @Column(nullable = false)
     private Integer age;
-    @Column(name = "salary", nullable = false)
+
+    @Column(nullable = false)
     private BigDecimal salary;
+
+    @ManyToOne
+    private ShopEntity shop;
+
+    @ManyToOne
+    private SellerEntity manager;
+
+    @OneToMany(mappedBy = "manager")
+    private Set<SellerEntity> employees;
 
     public String getFirstName() {
         return firstName;
@@ -51,6 +62,33 @@ public class SellerEntity extends BaseEntity{
 
     public SellerEntity setSalary(BigDecimal salary) {
         this.salary = salary;
+        return this;
+    }
+
+    public ShopEntity getShop() {
+        return shop;
+    }
+
+    public SellerEntity setShop(ShopEntity shop) {
+        this.shop = shop;
+        return this;
+    }
+
+    public SellerEntity getManager() {
+        return manager;
+    }
+
+    public SellerEntity setManager(SellerEntity manager) {
+        this.manager = manager;
+        return this;
+    }
+
+    public Set<SellerEntity> getEmployees() {
+        return employees;
+    }
+
+    public SellerEntity setEmployees(Set<SellerEntity> employees) {
+        this.employees = employees;
         return this;
     }
 }

@@ -1,30 +1,38 @@
 package bg.softuni.supermarket.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "products")
 public class ProductEntity extends BaseEntity{
 
     @Column(name = "best_before")
-    private Date bestBefore;
-    @Column(name = "description", columnDefinition = "TEXT")
+    private LocalDate bestBefore;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
-    @Column(name = "name", nullable = false)
+
+    @Column(nullable = false)
     private String name;
-    @Column(name = "price", nullable = false)
+
+    @Column(nullable = false)
     private BigDecimal price;
 
+    @ManyToOne
+    private CategoryEntity category;
 
-    public Date getBestBefore() {
+    @ManyToMany(mappedBy = "products")
+    private Set<ShopEntity> shops;
+
+    public LocalDate getBestBefore() {
         return bestBefore;
     }
 
-    public ProductEntity setBestBefore(Date bestBefore) {
+    public ProductEntity setBestBefore(LocalDate bestBefore) {
         this.bestBefore = bestBefore;
         return this;
     }
@@ -53,6 +61,24 @@ public class ProductEntity extends BaseEntity{
 
     public ProductEntity setPrice(BigDecimal price) {
         this.price = price;
+        return this;
+    }
+
+    public CategoryEntity getCategory() {
+        return category;
+    }
+
+    public ProductEntity setCategory(CategoryEntity category) {
+        this.category = category;
+        return this;
+    }
+
+    public Set<ShopEntity> getShops() {
+        return shops;
+    }
+
+    public ProductEntity setShops(Set<ShopEntity> shops) {
+        this.shops = shops;
         return this;
     }
 }
