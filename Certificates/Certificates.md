@@ -3,6 +3,7 @@ Uploaded certificates from completed courses.
 Credentials:
 
 1. Java Programming Basics - March 2021
+
 https://softuni.bg/certificates/details/105070/ca7fc83d
 
 2. Java Programming Fundamentals - May 2021
