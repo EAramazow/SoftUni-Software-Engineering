@@ -1,8 +1,7 @@
 package bg.softuni.exampreparation.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -18,6 +17,9 @@ public class UserEntity extends BaseEntity {
     private String email;
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
+    private Set<OrderEntity> orders;
 
     public UserEntity() {
     }
@@ -64,6 +66,15 @@ public class UserEntity extends BaseEntity {
 
     public UserEntity setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public Set<OrderEntity> getOrders() {
+        return orders;
+    }
+
+    public UserEntity setOrders(Set<OrderEntity> orders) {
+        this.orders = orders;
         return this;
     }
 }

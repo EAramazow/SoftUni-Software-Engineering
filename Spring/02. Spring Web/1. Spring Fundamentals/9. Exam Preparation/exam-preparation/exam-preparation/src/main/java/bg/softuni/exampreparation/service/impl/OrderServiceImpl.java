@@ -2,6 +2,7 @@ package bg.softuni.exampreparation.service.impl;
 
 import bg.softuni.exampreparation.model.entity.OrderEntity;
 import bg.softuni.exampreparation.model.service.OrderServiceModel;
+import bg.softuni.exampreparation.model.view.OrderViewModel;
 import bg.softuni.exampreparation.repository.OrderRepository;
 import bg.softuni.exampreparation.service.CategoryService;
 import bg.softuni.exampreparation.service.OrderService;
@@ -9,6 +10,9 @@ import bg.softuni.exampreparation.service.UserService;
 import bg.softuni.exampreparation.util.CurrentUser;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -37,5 +41,19 @@ public class OrderServiceImpl implements OrderService {
 
         orderRepository.save(order);
 
+    }
+
+    @Override
+    public List<OrderViewModel> findAllOrdersOrderByPriceDesc() {
+        return orderRepository
+                .findAllByOrderByPriceDesc()
+                .stream()
+                .map(order -> modelMapper.map(order, OrderViewModel.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void readyOrder(Long id) {
+        orderRepository.deleteById(id);
     }
 }

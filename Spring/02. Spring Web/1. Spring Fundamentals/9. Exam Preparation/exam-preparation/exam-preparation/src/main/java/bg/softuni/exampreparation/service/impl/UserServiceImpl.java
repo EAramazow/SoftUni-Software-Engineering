@@ -2,11 +2,15 @@ package bg.softuni.exampreparation.service.impl;
 
 import bg.softuni.exampreparation.model.entity.UserEntity;
 import bg.softuni.exampreparation.model.service.UserServiceModel;
+import bg.softuni.exampreparation.model.view.UserViewModel;
 import bg.softuni.exampreparation.repository.UserRepository;
 import bg.softuni.exampreparation.util.CurrentUser;
 import bg.softuni.exampreparation.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -48,5 +52,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserEntity findById(Long id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<UserViewModel> findAllUserAndCountOfOrdersOrderByCountDesc() {
+        return userRepository.findAllByOrdersCountDescending()
+                .stream()
+                .map(user -> {
+                    UserViewModel userViewModel = new UserViewModel();
+                    userViewModel.setUsername(user.getUsername());
+                    userViewModel.setCountOfOrders(user.getOrders().size());
+
+                return userViewModel;
+                })
+                .collect(Collectors.toList());
     }
 }
