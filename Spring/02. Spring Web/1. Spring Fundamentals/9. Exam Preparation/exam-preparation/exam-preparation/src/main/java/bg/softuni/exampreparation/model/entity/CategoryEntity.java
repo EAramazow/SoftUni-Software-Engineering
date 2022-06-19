@@ -9,19 +9,19 @@ import javax.persistence.*;
 public class CategoryEntity extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
-    private CategoryNameEnum category;
+    private CategoryNameEnum name;
     @Column(nullable = false)
     private Integer neededTime;
 
     public CategoryEntity() {
     }
 
-    public CategoryNameEnum getCategory() {
-        return category;
+    public CategoryNameEnum getName() {
+        return name;
     }
 
-    public CategoryEntity setCategory(CategoryNameEnum category) {
-        this.category = category;
+    public CategoryEntity setName(CategoryNameEnum name) {
+        this.name = name;
         return this;
     }
 
