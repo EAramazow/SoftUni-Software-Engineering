@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -80,17 +81,17 @@ public class UserController {
             redirectAttributes.addFlashAttribute("userLoginBindingModel", userLoginBindingModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginBindingModel", bindingResult);
 
-            return "redirect::login";
+            return "redirect:login";
         }
 
        UserServiceModel userServiceModel = userService.findByUsernameAndPassword(userLoginBindingModel.getUsername(), userLoginBindingModel.getPassword());
 
         // if user is not found ->
 
-        if (bindingResult.hasErrors()) {
+        if (userServiceModel == null) {
             redirectAttributes.addFlashAttribute("userLoginBindingModel", userLoginBindingModel);
             redirectAttributes.addFlashAttribute("isFound", false);
-            return "redirect::login";
+            return "redirect:login";
         }
 
         // if user is found ->
@@ -101,5 +102,13 @@ public class UserController {
         return "redirect:/";
 
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession httpSession) {
+        httpSession.invalidate();
+
+        return "redirect:/";
+    }
+
 
 }

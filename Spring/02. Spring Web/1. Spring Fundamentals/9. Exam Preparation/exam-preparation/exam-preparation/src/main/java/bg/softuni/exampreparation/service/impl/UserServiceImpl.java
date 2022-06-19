@@ -3,7 +3,7 @@ package bg.softuni.exampreparation.service.impl;
 import bg.softuni.exampreparation.model.entity.UserEntity;
 import bg.softuni.exampreparation.model.service.UserServiceModel;
 import bg.softuni.exampreparation.repository.UserRepository;
-import bg.softuni.exampreparation.security.CurrentUser;
+import bg.softuni.exampreparation.util.CurrentUser;
 import bg.softuni.exampreparation.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -43,5 +43,10 @@ public class UserServiceImpl implements UserService {
     public void loginUser(Long id, String username) {
         currentUser.setId(id);
         currentUser.setUsername(username);
+    }
+
+    @Override
+    public UserEntity findById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 }

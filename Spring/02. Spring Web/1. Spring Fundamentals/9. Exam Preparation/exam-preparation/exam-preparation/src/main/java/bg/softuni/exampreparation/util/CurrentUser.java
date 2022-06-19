@@ -1,4 +1,4 @@
-package bg.softuni.exampreparation.security;
+package bg.softuni.exampreparation.util;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;

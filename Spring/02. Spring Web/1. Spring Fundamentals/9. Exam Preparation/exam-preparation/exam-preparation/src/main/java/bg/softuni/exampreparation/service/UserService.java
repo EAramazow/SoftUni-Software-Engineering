@@ -1,5 +1,6 @@
 package bg.softuni.exampreparation.service;
 
+import bg.softuni.exampreparation.model.entity.UserEntity;
 import bg.softuni.exampreparation.model.service.UserServiceModel;
 
 public interface UserService {
@@ -8,4 +9,6 @@ public interface UserService {
     UserServiceModel findByUsernameAndPassword(String username, String password);
 
     void loginUser(Long id, String username);
+
+    UserEntity findById(Long id);
 }
