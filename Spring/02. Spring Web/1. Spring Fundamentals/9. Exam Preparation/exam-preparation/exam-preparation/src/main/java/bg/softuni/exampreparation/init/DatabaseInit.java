@@ -1,6 +1,6 @@
 package bg.softuni.exampreparation.init;
 
-import bg.softuni.exampreparation.service.impl.CategoryService;
+import bg.softuni.exampreparation.service.CategoryService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

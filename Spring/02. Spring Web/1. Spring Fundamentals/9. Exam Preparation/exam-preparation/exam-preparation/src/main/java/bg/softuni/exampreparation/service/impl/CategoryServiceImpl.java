@@ -1,9 +1,9 @@
-package bg.softuni.exampreparation.service;
+package bg.softuni.exampreparation.service.impl;
 
 import bg.softuni.exampreparation.model.entity.CategoryEntity;
 import bg.softuni.exampreparation.model.enums.CategoryNameEnum;
 import bg.softuni.exampreparation.repository.CategoryRepository;
-import bg.softuni.exampreparation.service.impl.CategoryService;
+import bg.softuni.exampreparation.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
