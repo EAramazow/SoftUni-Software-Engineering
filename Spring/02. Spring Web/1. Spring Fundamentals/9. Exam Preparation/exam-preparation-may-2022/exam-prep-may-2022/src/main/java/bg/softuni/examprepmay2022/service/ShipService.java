@@ -1,6 +1,7 @@
 package bg.softuni.examprepmay2022.service;
 
 import bg.softuni.examprepmay2022.model.dto.CreateShipDTO;
+import bg.softuni.examprepmay2022.model.dto.ShipDTO;
 import bg.softuni.examprepmay2022.model.entity.CategoryEntity;
 import bg.softuni.examprepmay2022.model.entity.ShipEntity;
 import bg.softuni.examprepmay2022.model.entity.UserEntity;
@@ -11,7 +12,10 @@ import bg.softuni.examprepmay2022.repository.UserRepository;
 import bg.softuni.examprepmay2022.session.LoggedUser;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ShipService {
@@ -62,4 +66,22 @@ public class ShipService {
 
         return true;
     }
+
+
+    public List<ShipDTO> getShipsOwnedBy(Long ownerId) {
+        return this.shipRepository.findByUserId(ownerId)
+                .stream()
+                .map(ShipDTO::new).collect(Collectors.toList());
+    }
+
+    public List<ShipDTO> getShipsNotOwnedBy(Long ownerId) {
+        return this.shipRepository.findByUserIdNot(ownerId)
+                .stream()
+                .map(ShipDTO::new).collect(Collectors.toList());
+    }
+
+    public List<ShipDTO> getAllSorted() {
+        return this.shipRepository.findByOrderByHealthAscNameDescPowerAsc()
+                .stream()
+                .map(ShipDTO::new).collect(Collectors.toList());    }
 }

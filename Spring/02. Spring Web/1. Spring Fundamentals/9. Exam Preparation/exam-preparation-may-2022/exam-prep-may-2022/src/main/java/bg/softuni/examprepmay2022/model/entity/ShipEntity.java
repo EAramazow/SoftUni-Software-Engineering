@@ -22,7 +22,7 @@ public class ShipEntity {
     @ManyToOne
     private CategoryEntity category;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private UserEntity user;
 
     public ShipEntity() {

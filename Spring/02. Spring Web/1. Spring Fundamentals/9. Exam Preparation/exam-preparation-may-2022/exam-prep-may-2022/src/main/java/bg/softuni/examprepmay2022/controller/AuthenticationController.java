@@ -86,4 +86,11 @@ public class AuthenticationController {
 
         return "redirect:/home";
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        this.authenticationService.logout();
+
+        return "redirect:/";
+    }
 }

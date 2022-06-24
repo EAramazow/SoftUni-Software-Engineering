@@ -62,6 +62,10 @@ public class AuthenticationService {
 
         return true;
     }
+
+    public void logout() {
+        this.userSession.logout();
+    }
 }
 
 
