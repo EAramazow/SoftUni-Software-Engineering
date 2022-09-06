@@ -1,0 +1,177 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "description": "Book API",
+    "contact": {
+      "name": "Emil Aramazov",
+      "email": "emil@mail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Get Book by ID",
+      "description": "Returns a book details by its ID"
+    }
+  ],
+  "paths": {
+    "/api/books": {
+      "get": {
+        "tags": [
+          "book-controller"
+        ],
+        "operationId": "getAllBooks",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BookDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "book-controller"
+        ],
+        "operationId": "createBook",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BookDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/books/{id}": {
+      "get": {
+        "tags": [
+          "Get Book by ID"
+        ],
+        "operationId": "getBookById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the book",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "If the book was not found",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookDTO"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "If the book was retrieved successfully",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookDTO"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "book-controller"
+        ],
+        "operationId": "deleteBookById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AuthorDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "BookDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "type": "string"
+          },
+          "isbn": {
+            "type": "string"
+          },
+          "author": {
+            "$ref": "#/components/schemas/AuthorDTO"
+          }
+        }
+      }
+    }
+  }
+}
