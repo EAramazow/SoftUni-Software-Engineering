@@ -1,3 +1,5 @@
+import java.util.function.Consumer;
+
 public class SmartArray {
 
     private final static int INITIAL_CAPACITY = 8;
@@ -13,14 +15,14 @@ public class SmartArray {
     public void add(int element) {
 
         if (this.size == elements.length) {
-            this.elements = resize();
+            this.elements = grow();
         }
 
         this.elements[this.size] = element;
         this.size++;
     }
 
-    private int[] resize() {
+    private int[] grow() {
         int[] newElements = new int[elements.length * 2];
 
         for (int i = 0; i < this.elements.length; i++) {
@@ -59,7 +61,21 @@ public class SmartArray {
 
       this.size--;
 
+      if (this.size <= this.elements.length / 2 && this.size >= INITIAL_CAPACITY) {
+        this.elements = shrink();
+      }
+
       return removed;
+    }
+
+    private int[] shrink() {
+        int[] newElements = new int[this.elements.length / 2];
+
+        for (int i = 0; i < this.size; i++) {
+            newElements[i] = this.elements[i];
+        }
+
+        return newElements;
     }
 
     private void ensureIndex(int index) {
@@ -76,6 +92,28 @@ public class SmartArray {
         }
 
         return false;
+    }
+
+    public void insert(int index, int element) {
+
+        ensureIndex(index);
+
+        int lastElement = elements[this.size - 1];
+
+        for (int i = this.size - 1; i > index ; i--) {
+            this.elements[i] = this.elements[i - 1];
+        }
+
+        this.elements[index] = element;
+
+        add(lastElement);
+
+    }
+
+    public void forEach(Consumer<Integer> consumer) {
+        for (int i = 0; i < this.size; i++) {
+            consumer.accept(this.elements[i]);
+        }
     }
 
 }
