@@ -61,7 +61,7 @@ public class SmartArray {
 
       this.size--;
 
-      if (this.size <= this.elements.length / 2 && this.size >= INITIAL_CAPACITY) {
+      if (this.size <= this.elements.length / 4 || this.size <= INITIAL_CAPACITY) {
         this.elements = shrink();
       }
 
