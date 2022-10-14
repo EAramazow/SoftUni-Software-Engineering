@@ -24,6 +24,6 @@ public class StackMain {
         while (stack.size() > 0) {
             System.out.println(stack.pop());
         }
-        
+
     }
 }
