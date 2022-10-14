@@ -1,4 +1,6 @@
-public class Main {
+package SmartArray;
+
+public class SmartArrayMain {
     public static void main(String[] args) {
 
         SmartArray smartArray = new SmartArray();
@@ -10,23 +12,23 @@ public class Main {
         smartArray.add(5);
 
         // 1.
-        System.out.println("The numbers in SmartArray is: ");
+        System.out.println("The numbers in SmartArray.SmartArray is: ");
 
         smartArray.forEach(System.out::println);
 
         // 2.
-        System.out.println("The selected index from SmartArray is: ");
+        System.out.println("The selected index from SmartArray.SmartArray is: ");
         System.out.println(smartArray.get(2));
 
         smartArray.remove(4);
 
-        System.out.println("The numbers in SmartArray after remove method is: ");
+        System.out.println("The numbers in SmartArray.SmartArray after remove method is: ");
 
         smartArray.forEach(System.out::println);
 
         smartArray.insert(0, 0);
 
-        System.out.println("The numbers in SmartArray after insert method is: ");
+        System.out.println("The numbers in SmartArray.SmartArray after insert method is: ");
 
         smartArray.forEach(System.out::println);
 

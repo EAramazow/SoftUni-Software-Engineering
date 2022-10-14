@@ -1,3 +1,5 @@
+package SmartArray;
+
 import java.util.function.Consumer;
 
 public class SmartArray {
