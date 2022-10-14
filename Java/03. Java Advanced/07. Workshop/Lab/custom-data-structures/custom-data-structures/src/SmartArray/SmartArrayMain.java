@@ -11,12 +11,10 @@ public class SmartArrayMain {
         smartArray.add(4);
         smartArray.add(5);
 
-        // 1.
         System.out.println("The numbers in SmartArray.SmartArray is: ");
 
         smartArray.forEach(System.out::println);
 
-        // 2.
         System.out.println("The selected index from SmartArray.SmartArray is: ");
         System.out.println(smartArray.get(2));
 
