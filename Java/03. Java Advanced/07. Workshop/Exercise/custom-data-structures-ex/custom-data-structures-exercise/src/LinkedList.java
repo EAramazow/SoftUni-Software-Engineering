@@ -50,6 +50,25 @@ public class LinkedList {
         return result;
     }
 
+    public int removeLast() {
+        if (this.size < 2) {
+            return removeFirst();
+        }
+
+        int result = 0;
+        Node currentNode = this.head;
+
+        while (currentNode.next.next != null) {
+            currentNode = currentNode.next;
+        }
+
+        result = currentNode.next.value;
+        currentNode.next = null;
+        this.size--;
+
+        return result;
+    }
+
     public int get(int index) {
         checkIndex(index);
 

@@ -11,8 +11,11 @@ public class Main {
 //        linkedList.addLast(5);
 //        linkedList.addLast(6);
 
-        System.out.println(linkedList.get(0));
-        System.out.println(linkedList.get(2));
+//        System.out.println(linkedList.get(0));
+//        System.out.println(linkedList.get(2));
+
+        
+        System.out.println(linkedList.removeLast());
 
 //        linkedList.forEach(System.out::println);
 
