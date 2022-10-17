@@ -29,13 +29,9 @@ public class LinkedListTail {
         }
 
         Node newNode = new Node(element);
-        Node currentNode = this.head;
-
-        while (currentNode.next != null) {
-            currentNode = currentNode.next;
-        }
-
-        currentNode.next = newNode;
+        this.tail.next = newNode;
+        tail = newNode;
+        
         this.size++;
     }
 
@@ -52,7 +48,7 @@ public class LinkedListTail {
         if (isEmpty()) {
             this.head = this.tail = null;
         }
-        
+
         return result;
     }
 
@@ -70,6 +66,8 @@ public class LinkedListTail {
 
         result = currentNode.next.value;
         currentNode.next = null;
+        this.tail = currentNode;
+
         this.size--;
 
         return result;

@@ -33,6 +33,12 @@ public class Main {
 
         linkedListTail.removeFirst();
 
+        linkedListTail.addLast(3);
+        linkedListTail.addLast(4);
+
+        System.out.println(linkedListTail.removeLast());
+        System.out.println(linkedListTail.removeLast());
+
         linkedListTail.forEach(System.out::println);
 
     }
