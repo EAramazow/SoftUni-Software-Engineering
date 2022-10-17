@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class LinkedList {
@@ -20,7 +22,7 @@ public class LinkedList {
         size++;
     }
 
-    public void addLast (int element) {
+    public void addLast(int element) {
         if (!isEmpty()) {
             addFirst(element);
             return;
@@ -112,4 +114,31 @@ public class LinkedList {
             currentNode = currentNode.next;
         }
     }
+
+    // 1st way toArray() method
+//    public int[] toArray() {
+//        int[] array = new int[this.size];
+//        int counter = 0;
+//
+//        Node currentNode = this.head;
+//
+//        while (currentNode != null) {
+//            array[counter] = currentNode.value;
+//            currentNode = currentNode.next;
+//            counter++;
+//        }
+//
+//        return array;
+//    }
+
+
+    // 2nd way toArray() method with stream
+    public int[] toArray() {
+        List<Integer> result = new ArrayList<>();
+
+        forEach(result::add);
+
+        return result.stream().mapToInt(e -> e).toArray();
+    }
+
 }

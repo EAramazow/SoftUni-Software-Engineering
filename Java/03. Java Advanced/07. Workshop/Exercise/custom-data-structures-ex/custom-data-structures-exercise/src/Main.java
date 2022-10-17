@@ -14,10 +14,12 @@ public class Main {
 //        System.out.println(linkedList.get(0));
 //        System.out.println(linkedList.get(2));
 
-        
+
         System.out.println(linkedList.removeLast());
 
-//        linkedList.forEach(System.out::println);
+        int[] arr = linkedList.toArray();
+
+        linkedList.forEach(System.out::println);
 
     }
 }
