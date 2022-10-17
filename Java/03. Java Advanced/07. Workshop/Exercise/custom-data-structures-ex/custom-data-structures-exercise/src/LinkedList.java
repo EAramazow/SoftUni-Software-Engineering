@@ -1,3 +1,5 @@
+import java.util.function.Consumer;
+
 public class LinkedList {
 
     private Node head;
@@ -38,6 +40,17 @@ public class LinkedList {
 
     public boolean isEmpty() {
         return this.size == 0;
+    }
+
+    public void forEach(Consumer<Integer> consumer) {
+
+        Node currentNode = this.head;
+
+        while (currentNode != null) {
+            consumer.accept(currentNode.value);
+            currentNode = currentNode.next;
+        }
+
     }
 
 }
