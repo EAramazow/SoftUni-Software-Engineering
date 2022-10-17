@@ -7,7 +7,14 @@ public class Main {
         linkedList.addFirst(2);
         linkedList.addFirst(3);
 
-        linkedList.forEach(System.out::println);
+//        linkedList.addLast(4);
+//        linkedList.addLast(5);
+//        linkedList.addLast(6);
+
+        System.out.println(linkedList.get(0));
+        System.out.println(linkedList.get(2));
+
+//        linkedList.forEach(System.out::println);
 
     }
 }

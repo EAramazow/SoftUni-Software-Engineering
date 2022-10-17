@@ -20,8 +20,24 @@ public class LinkedList {
         size++;
     }
 
-    public int removeFirst() {
+    public void addLast (int element) {
+        if (!isEmpty()) {
+            addFirst(element);
+            return;
+        }
 
+        Node newNode = new Node(element);
+        Node currentNode = this.head;
+
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+
+        currentNode.next = newNode;
+        this.size++;
+    }
+
+    public int removeFirst() {
         if (isEmpty()) {
             throw new IllegalStateException("Can't remove from empty list.");
         }
@@ -34,6 +50,33 @@ public class LinkedList {
         return result;
     }
 
+    public int get(int index) {
+        checkIndex(index);
+
+        int result = 0;
+        int currentIndex = 0;
+
+        Node currentNode = this.head;
+
+        while (currentNode != null) {
+            if (currentIndex == index) {
+                result = currentNode.value;
+                break;
+            }
+
+            currentIndex++;
+            currentNode = currentNode.next;
+        }
+
+        return result;
+    }
+
+    private void checkIndex(int index) {
+        if (index < 0 || index >= this.size) {
+            throw new IndexOutOfBoundsException("The index " + index + " is out of bounds.");
+        }
+    }
+
     public int size() {
         return this.size;
     }
@@ -43,14 +86,11 @@ public class LinkedList {
     }
 
     public void forEach(Consumer<Integer> consumer) {
-
         Node currentNode = this.head;
 
         while (currentNode != null) {
             consumer.accept(currentNode.value);
             currentNode = currentNode.next;
         }
-
     }
-
 }
