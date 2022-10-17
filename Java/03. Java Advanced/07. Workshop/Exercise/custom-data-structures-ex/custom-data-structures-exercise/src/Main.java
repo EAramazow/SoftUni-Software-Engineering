@@ -7,5 +7,7 @@ public class Main {
         linkedList.addFirst(2);
         linkedList.addFirst(3);
 
+        linkedList.forEach(System.out::println);
+
     }
 }
