@@ -1,6 +1,7 @@
 public class Node {
 
     public int value; //vaules - 3, 5 or 7 ...
+    public Node previous;
     public Node next;
 
     public Node (int value) {
