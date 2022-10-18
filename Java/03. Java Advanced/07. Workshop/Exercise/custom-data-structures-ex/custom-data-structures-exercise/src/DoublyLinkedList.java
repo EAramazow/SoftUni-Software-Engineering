@@ -31,6 +31,7 @@ public class DoublyLinkedList {
 
         Node newNode = new Node(element);
         this.tail.next = newNode;
+        newNode.previous = this.tail;
         tail = newNode;
 
         this.size++;
@@ -75,19 +76,23 @@ public class DoublyLinkedList {
         checkIndex(index);
 
         int result = 0;
-        int currentIndex = 0;
+        if (index <= this.size / 2) {
+            Node currentNode = this.head;
 
-        Node currentNode = this.head;
-
-        while (currentNode != null) {
-            if (currentIndex == index) {
-                result = currentNode.value;
-                break;
+            for (int i = 0; i < index; i++) {
+                currentNode = currentNode.next;
             }
+            result = currentNode.value;
 
-            currentIndex++;
-            currentNode = currentNode.next;
+        } else {
+            Node currentNode = this.tail;
+
+            for (int i = size - 1; i > index; i++) {
+                currentNode = currentNode.previous;
+            }
+            result = currentNode.value;
         }
+
 
         return result;
     }
