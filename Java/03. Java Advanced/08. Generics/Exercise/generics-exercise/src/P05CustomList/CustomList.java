@@ -42,6 +42,14 @@ public class CustomList<T extends Comparable<T>> {
         return Collections.min(elements);
     }
 
+    public int size() {
+        return elements.size();
+    }
+
+    public T get (int index) {
+        return elements.get(index);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

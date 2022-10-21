@@ -40,6 +40,9 @@ public class Main {
                 case "Min":
                     System.out.println(customList.getMin());
                     break;
+                case "Sort":
+                    Sorter.sort(customList);
+                    break;
                 case "Print":
                     System.out.println(customList);
                     break;
