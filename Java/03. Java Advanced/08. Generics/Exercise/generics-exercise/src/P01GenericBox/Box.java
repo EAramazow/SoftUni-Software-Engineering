@@ -23,7 +23,7 @@ public class Box<T> {
             sb.append(String.format("%s: %s", element.getClass().getName(), element.toString()))
                     .append(System.lineSeparator());
         }
-        
+
         return sb.toString();
     }
 }
