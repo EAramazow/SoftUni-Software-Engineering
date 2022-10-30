@@ -1,11 +1,8 @@
-package P01Book;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Book {
+public class Book implements Comparable<Book> {
 
     private String title;
     private int year;
@@ -39,5 +36,26 @@ public class Book {
 
     public List<String> getAuthors() {
         return authors;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", year=" + year +
+                ", authors=" + authors +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Book other) {
+        int compared = this.title.compareTo(other.title);
+
+        if (compared == 0) {
+            compared = Integer.compare(this.year, other.year);
+        }
+
+        return compared;
     }
 }

@@ -1,5 +1,3 @@
-package P01Book;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -42,6 +40,12 @@ public class Library implements Iterable<Book>{
     }
 
 
+    @Override
+    public String toString() {
+        return "Library{" +
+                "books=" + books +
+                '}';
+    }
 
     @Override
     public Iterator<Book> iterator() {

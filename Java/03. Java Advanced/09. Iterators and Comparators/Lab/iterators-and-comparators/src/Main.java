@@ -1,7 +1,4 @@
-package P01Book;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class Main {
@@ -14,8 +11,8 @@ public class Main {
         List<Book> books = new ArrayList<>();
 
         books.add(bookOne);
-        books.add(bookTwo);
         books.add(bookThree);
+        books.add(bookTwo);
 
         int end = books.size();
 
@@ -39,13 +36,24 @@ public class Main {
         library.add(bookTwo);
         library.add(bookThree);
 
-        int libEnd = library.size();
 
-        for (int begin = 0; begin < libEnd; begin++) {
-            Book nextBook = library.get(begin);
-            System.out.println(nextBook.getTitle());
+        books
+                .stream()
+                .sorted((f, s) -> {
+                    int compared = f.getTitle().compareTo(s.getTitle());
+
+                    if (compared == 0) {
+                        compared = Integer.compare(f.getYear(), s.getYear());
+                    }
+
+                    return compared;
+                })
+                .forEach(System.out::println);
+
+        for (Book next : library) {
+            System.out.println(next.getTitle());
         }
+    }
 
 
     }
-}
