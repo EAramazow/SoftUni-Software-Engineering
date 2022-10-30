@@ -19,21 +19,33 @@ public class Main {
 
         int end = books.size();
 
+    // iterator example with while loop :
+
 //        while (iterator.hasNext()) {
 //            Book next = iterator.next();
 //            System.out.println(next);
 //        }
 
+        // iterator example with for each loop :
+//
+//        for (Book next : books) {
+//            System.out.println(next);
+//        }
 
-        for (Book next : books) {
-            System.out.println(next);
-        }
 
-        for (int begin = 0; begin < end; begin++) {
-            Book nextBook = books.get(begin);
+        Library library = new Library();
 
+        library.add(bookOne);
+        library.add(bookTwo);
+        library.add(bookThree);
+
+        int libEnd = library.size();
+
+        for (int begin = 0; begin < libEnd; begin++) {
+            Book nextBook = library.get(begin);
             System.out.println(nextBook.getTitle());
         }
+
 
     }
 }
