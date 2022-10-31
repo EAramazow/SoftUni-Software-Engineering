@@ -1,0 +1,25 @@
+public class Main {
+    public static void main (String... args) {
+
+        // String... args : няма значение колко аргумента ще бъдат подадени
+
+        List<String> list = new Arraylist<>();
+            Main.main("1", "Emo, "Gosho");
+            myTestMethod("Pesho", "1, "2", "3");
+            myTestMethod("Emo", "29");
+    }
+
+    public static void myTestMethod (String name, String... args) {
+        implementation...
+    }
+}
+
+
+compareTo :
+   comparable by only one criterion
+  -1 -> when the object is smaller
+   0 -> when the objects are equal
+   1 -> when the object is bigger
+
+    comparable -> compareTo/сравним -> inside the class
+    comparator -> сравнител -> in different class
