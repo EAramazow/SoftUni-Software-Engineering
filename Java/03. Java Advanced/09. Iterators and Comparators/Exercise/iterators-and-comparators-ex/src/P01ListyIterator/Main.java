@@ -34,6 +34,9 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                     break;
+                case "PrintAll":
+                    listyIterator.printAll();
+                    break;
             }
 
             line = scanner.nextLine();
