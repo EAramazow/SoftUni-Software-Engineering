@@ -1,3 +1,5 @@
+-- String ... args
+
 public class Main {
     public static void main (String... args) {
 
@@ -15,6 +17,9 @@ public class Main {
 }
 
 
+
+-- Comparable and Comparator
+
 compareTo :
    comparable by only one criterion
   -1 -> when the object is smaller
@@ -23,3 +28,10 @@ compareTo :
 
     comparable -> compareTo/сравним -> inside the class
     comparator -> сравнител -> in different class
+
+
+
+-- Iterable and Iterator
+
+    iterable -> something which can be iterated/нещо, което може да се итерира
+    iterator -> something which iterate/нещото, което итерира
